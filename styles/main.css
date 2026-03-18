@@ -73,6 +73,24 @@ button:focus-visible {
   max-width: 60ch;
 }
 
+.media-block {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid rgba(22, 32, 43, 0.12);
+  border-radius: 16px;
+}
+
+.media-block img {
+  border-radius: 12px;
+}
+
+.media-block figcaption {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 .site-footer {
   border-top: 1px solid rgba(22, 32, 43, 0.12);
   background: var(--accent-2);
