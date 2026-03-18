@@ -5,12 +5,18 @@
   --muted: #5b6775;
   --accent: #142d50;
   --accent-2: #f0f4f8;
+  --card: #ffffff;
+  --border: rgba(22, 32, 43, 0.12);
+  --shadow: 0 14px 40px rgba(20, 45, 80, 0.1);
   --max-width: 1100px;
 }
 
 body {
-  font-family: "Source Serif Pro", "Times New Roman", serif;
-  background: var(--bg);
+  font-family: "Source Serif 4", "Source Serif Pro", "Times New Roman", serif;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(20, 45, 80, 0.08), transparent 40%),
+    radial-gradient(circle at 90% 20%, rgba(20, 45, 80, 0.06), transparent 45%),
+    linear-gradient(180deg, #f9f5ef 0%, #f6f2ea 40%, #f0ece4 100%);
   color: var(--text);
 }
 
@@ -39,18 +45,22 @@ button:focus-visible {
 .container {
   width: min(92vw, var(--max-width));
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 2.5rem 0;
 }
 
 .site-header {
-  border-bottom: 1px solid rgba(22, 32, 43, 0.12);
+  border-bottom: 1px solid var(--border);
   background: var(--accent-2);
+  position: sticky;
+  top: 0;
+  z-index: 5;
 }
 
 .header-inner {
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .uni-logo {
@@ -64,25 +74,67 @@ button:focus-visible {
 }
 
 .hero {
-  padding: 4rem 0 3rem;
+  padding: 3.5rem 0 2.5rem;
+}
+
+.hero h1 {
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  line-height: 1.2;
 }
 
 .lead {
   margin-top: 0.75rem;
   color: var(--muted);
   max-width: 60ch;
+  font-size: 1.05rem;
+}
+
+.section {
+  margin-top: 2.5rem;
+  padding: 2rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+.section h2 {
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  margin-bottom: 0.75rem;
+}
+
+.section p {
+  max-width: 70ch;
+}
+
+.section + .section {
+  margin-top: 2rem;
+}
+
+ul {
+  margin-left: 1.25rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.section a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .media-block {
-  margin-top: 1.5rem;
-  padding: 1rem;
-  background: #fff;
-  border: 1px solid rgba(22, 32, 43, 0.12);
+  margin: 0;
+  padding: 1.25rem;
+  background: #fbfaf8;
+  border: 1px solid var(--border);
   border-radius: 16px;
 }
 
 .media-block img {
   border-radius: 12px;
+  width: 100%;
+  height: auto;
 }
 
 .media-block figcaption {
@@ -92,7 +144,29 @@ button:focus-visible {
 }
 
 .site-footer {
-  border-top: 1px solid rgba(22, 32, 43, 0.12);
+  border-top: 1px solid var(--border);
   background: var(--accent-2);
   font-size: 0.95rem;
+}
+
+.site-footer p {
+  color: var(--muted);
+}
+
+@media (max-width: 720px) {
+  .container {
+    padding: 2rem 0;
+  }
+
+  .hero {
+    padding: 2.5rem 0 2rem;
+  }
+
+  .section {
+    padding: 1.5rem;
+  }
+
+  .header-inner {
+    gap: 0.5rem;
+  }
 }
